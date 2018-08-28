@@ -1,0 +1,31 @@
+{
+  "name": "azure-iot",
+  "version": "1.0.0",
+  "description": "iot",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjoakim/azure-iot.git"
+  },
+  "keywords": [
+    "iot",
+    "azure"
+  ],
+  "author": "chris joakim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjoakim/azure-iot/issues"
+  },
+  "homepage": "https://github.com/cjoakim/azure-iot#readme",
+  "dependencies": {
+    "azure-iothub": "^1.7.3",
+    "azure-iot-device": "^1.7.1",
+    "azure-iot-device-mqtt": "^1.7.1"
+  }
+}

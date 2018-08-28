@@ -1,0 +1,64 @@
+<project name="backup" default="backup" basedir=".">
+
+    <description>
+        Ant script to create a zip file backup of this project.
+        Chris Joakim, 2018/08/28
+        ant -f backup.xml
+    </description>
+
+    <!-- These are the only properties you should have to change.  -->
+    <property name="_projectRoot"   value="/Users/${user.name}/github" />
+    <property name="_projectName"   value="azure-iot" />
+    <property name="_backupRoot"    value="/Backups/projects" />
+
+    <!-- These properties are computed from the above. -->
+    <property name="_projectDir"    value="${_projectRoot}/${_projectName}" />
+    <property name="_backupDir"     value="${_backupRoot}/${_projectName}" />
+
+    <!-- ******************************************************************* -->
+
+    <target name="echoProperties">
+
+        <description>
+            This step simply displays the properties defined above.
+        </description>
+
+        <echo message="Properties used in this script:" />
+        <echo message="projectRoot... ${_projectRoot}" />
+        <echo message="projectName... ${_projectName}" />
+        <echo message="backupRoot.... ${_backupRoot}" />
+        <echo message="projectDir.... ${_projectDir}" />
+        <echo message="backupDir..... ${_backupDir}" />
+
+    </target>
+
+    <!-- ******************************************************************* -->
+
+    <target name="backup" depends="echoProperties" >
+
+        <description>
+            Create the backup zip file.
+        </description>
+
+        <tstamp>
+            <format property="_backupTstamp" pattern="yyyyMMdd_HHmm" />
+        </tstamp>
+
+        <property name="_zipFilename"
+                  value="${_backupDir}/${_projectName}_${_backupTstamp}.zip" />
+
+        <mkdir dir="${_backupRoot}" />
+        <mkdir dir="${_backupDir}" />
+
+        <delete file="${_zipFilename}" />
+
+        <zip zipfile="${_zipFilename}"
+             basedir="${_projectDir}"
+             excludes=".git/, **/node_modules/, **/tmp/, txt_merged.txt" />
+
+        <echo message="file created: ${_zipFilename}" />
+        <echo message="done." />
+
+    </target>
+
+</project>
