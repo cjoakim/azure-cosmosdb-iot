@@ -8,8 +8,9 @@ if (process.argv.length < 6) {
     console.log(process.argv);
     console.log('Error: too few command-line args provided.');
     console.log('  node simulated_device.js <device> <ms-sleep> <max-count> <send-or-test>');
-    console.log('  node simulated_device.js device2 1500 100 test');
-    console.log('  node simulated_device.js device1 250 5000 send');
+    console.log('  node simulated_device.js device2 1000 3 test');
+    console.log('  node simulated_device.js device1 200 2040 send');
+    console.log('  node simulated_device.js device2 200 2040 send');
     process.exit();
 }
 
@@ -65,7 +66,7 @@ setInterval(function(){
     // seq,time,lat,lng,alt_meters,dist_meters,dist_miles
     var csv_fields = csv_lines[csv_index].split('|');
     loc['type'] = 'Point';
-    loc['coordinates'] = [csv_fields[3], csv_fields[2]];
+    loc['coordinates'] = [Number(csv_fields[3]), Number(csv_fields[2])];
     evt['location']    = loc;
     evt['dist_meters'] = csv_fields[5];
     evt['alt_meters']  = csv_fields[4];

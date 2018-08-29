@@ -78,6 +78,10 @@ Visit Azure Portal, and see that the new devices are listed:
 
 See https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-manage-job
 
+- Consume the IoT Hub datastream
+- Code in SQL-like syntax and JavaScript UDFs (User Defined Functions)
+- Optionally integrate with the AML Predictive Web Service
+
 First, register your IoT Hub as an Input.
 
 Next, register your CosmosDB as an Output, specify database **dev** and collection **iot**.
@@ -110,25 +114,90 @@ Note the [GeoJSON](http://geojson.org) with the current GPS coordinates of the d
 {
   "pk": "device1",
   "device": "device1",
-  "seq": 5,
-  "date": "2018-08-28T21:28:33.979Z",
-  "epoch": 1535491713979,
-  "temperature": 30.027234564934837,
-  "humidity": 77.79822510371012,
+  "seq": 2039,
+  "date": "2018-08-29T19:25:01.204Z",
+  "epoch": 1535570701204,
+  "temperature": 20.933610735073643,
+  "humidity": 62.25249468998116,
   "location": {
     "type": "Point",
     "coordinates": [
-      "-122.67533926293254",
-      "45.51593195647001"
+      -122.67585039138794,
+      45.51607553847134
     ]
   },
-  "dist_meters": "89.48999786376953",
-  "alt_meters": "13.800000190734863"
+  "dist_meters": "42638.30859375",
+  "alt_meters": "14.600000381469727"
 }
 ```
 
 ---
 
-## 5.0 Query the IoT data in CosmosDB
+## Query the IoT data in CosmosDB
+
+The query syntax is SQL-like:
+```
+Count the documents in the collection:
+SELECT COUNT(1) FROM c
+
+Most recent document:
+SELECT TOP 1 * FROM c order by c.epoch desc
+
+SELECT * FROM c WHERE c.pk = 'device1' and c.seq = 2039 order by c.epoch desc
+```
+
+Spatial Query with GPS coordinates (Events with 10-meters of the PDX marathon start and finish lines):
+```
+SELECT * FROM root WHERE ST_DISTANCE(root.location, {'type': 'Point', 'coordinates': [-122.67587503418326, 45.516625475138426] }) < 10
+
+SELECT * FROM root WHERE ST_DISTANCE(root.location, {'type': 'Point', 'coordinates': [-122.67585039138794, 45.51607553847134] }) < 10
+```
+
+The documents in CosmosDB now look like this.  Note that both the IoT Hub and CosmosDB augmented
+the JSON data sent by the device.
+```
+{
+    "pk": "device1",
+    "device": "device1",
+    "seq": 2039,
+    "date": "2018-08-29T19:25:01.204Z",
+    "epoch": 1535570701204,
+    "temperature": 20.933610735073643,
+    "humidity": 62.25249468998116,
+    "location": {
+        "type": "Point",
+        "coordinates": [
+            -122.67585039138794,
+            45.51607553847134
+        ]
+    },
+    "dist_meters": "42638.30859375",
+    "alt_meters": "14.600000381469727",
+    "EventProcessedUtcTime": "2018-08-29T19:25:01.2780689Z",
+    "PartitionId": 0,
+    "EventEnqueuedUtcTime": "2018-08-29T19:25:01.217Z",
+    "IoTHub": {
+        "MessageId": null,
+        "CorrelationId": null,
+        "ConnectionDeviceId": "cjoakim-device1",
+        "ConnectionDeviceGenerationId": "636710684711586771",
+        "EnqueuedTime": "2018-08-29T19:25:01.221Z",
+        "StreamId": null
+    },
+    "id": "fdf6d536-dbf2-c8af-b92d-10b729db8c26",
+    "_rid": "VAtpAJ2a-t73BwAAAAAADA==",
+    "_self": "dbs/VAtpAA==/colls/VAtpAJ2a-t4=/docs/VAtpAJ2a-t73BwAAAAAADA==/",
+    "_etag": "\"5e00c5c6-0000-0000-0000-5b86f3120000\"",
+    "_attachments": "attachments/",
+    "_ts": 1535570706
+}
+```
+---
+
+## CosmosDB easily integrates with other Azure PaaS services
+
+- Azure Functions, event-driven serverless code, see https://docs.microsoft.com/en-us/azure/azure-functions/ 
+- Azure Databricks, Apache Spark-based analytics platform, see https://docs.microsoft.com/en-us/azure/azure-databricks/what-is-azure-databricks
+
 
 
