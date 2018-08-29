@@ -1,10 +1,12 @@
 # azure-cosmosdb-iot
 
-IoT streaming pipeline with Azure IoT Hub, Stream Analytics, and CosmosDB. Node.js simulated device.
+IoT streaming data pipeline with the following Azure PaaS services:
+- Azure IoT Hub
+- Azure Stream Analytics
+- Azure CosmosDB with SQL API
+- Simulated IoT devices implemented in Node.js.
 
 ## Architecture
-
-This repository implements the following Azure Architecture
 
 ![azure-cosmosdb-iot](img/azure-cosmosdb-iot.png "")
 
@@ -19,6 +21,10 @@ This repository implements the following Azure Architecture
 Name: cjoakim-iot-hub
 Hostname: cjoakim-iot-hub.azure-devices.net
 Pricing and scale tier: S1 - Standard
+
+![iot-hub-provisioning1](img/iot-hub-provisioning1.png "")
+
+![iot-hub-provisioning2](img/iot-hub-provisioning2.png "")
 
 ### Provision Stream Analytics
 
@@ -47,6 +53,8 @@ $ az iot hub device-identity show-connection-string --hub-name cjoakim-iot-hub -
 
 Visit Azure Portal, and see that the new devices are listed:
 
+![registered-devices](img/registered-devices.png "")
+
 
 ## Send Events to the IoT Hub
 
@@ -60,3 +68,25 @@ Next, send 1000 messages, pausing 250 milliseconds between messages.
 node simulated_device.js device1 250 1000 send
 ```
 
+The devices send JSON data that looks like the following.
+Note the [GeoJSON](http://geojson.org) with the current GPS coordinates of the device.
+```
+{
+  "pk": "device1",
+  "device": "device1",
+  "seq": 5,
+  "date": "2018-08-28T21:28:33.979Z",
+  "epoch": 1535491713979,
+  "temperature": 30.027234564934837,
+  "humidity": 77.79822510371012,
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      "-122.67533926293254",
+      "45.51593195647001"
+    ]
+  },
+  "dist_meters": "89.48999786376953",
+  "alt_meters": "13.800000190734863"
+}
+```
