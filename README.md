@@ -42,7 +42,7 @@ Then create the **iot** collection in the **dev** database.
 Specify **unlimited storage capacity**, a **partition key** named **/pk**,
 and a **throughput of 10,000 RUs**.
 
-![azure-cosmosdb-provisioning2](img/azure-cosmosdb-provisioning2.png =500x)
+![azure-cosmosdb-provisioning2](img/azure-cosmosdb-provisioning2.png | width=500)
 
 ---
 
