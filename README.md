@@ -16,9 +16,9 @@ An implementation of an IoT streaming data pipeline using the following Azure Pa
 
 ---
 
-## Provision Azure Resources
+## 1. Provision Azure Resources
 
-### Provision an IoT Hub PaaS Service
+### 1.1 Provision an IoT Hub PaaS Service
 
 Name: cjoakim-iot-hub
 Hostname: cjoakim-iot-hub.azure-devices.net
@@ -28,11 +28,11 @@ Pricing and scale tier: S1 - Standard
 
 ![iot-hub-provisioning2](img/iot-hub-provisioning2.png "")
 
-### Provision a Stream Analytics PaaS Service
+### 1.2 Provision a Stream Analytics PaaS Service
 
 <img src="img/stream-analytics-provisioning1.png" width="500">
 
-### Provision a CosmosDB PaaS Service
+### 1.3 Provision a CosmosDB PaaS Service
 
 Create an Azure CosmosDB with the SQL API (i.e. - DocumentDB).
 
@@ -46,7 +46,7 @@ and a **throughput of 10,000 RUs**.
 
 ---
 
-## Register Simulated Devices with the Azure CLI
+## 2.0 Register Simulated Devices with the Azure CLI
 
 Verify that you have a recent version of the **az CLI program**:
 ```
@@ -72,11 +72,11 @@ Visit Azure Portal, and see that the new devices are listed:
 
 ---
 
-## Implement the Stream Analytics Job
+## 3.0 Implement the Stream Analytics Job
 
 ---
 
-## Send Events to the IoT Hub
+## 4.0 Send Events to the IoT Hub
 
 First, install the Node.js NPM libraries:
 ```
@@ -110,3 +110,9 @@ Note the [GeoJSON](http://geojson.org) with the current GPS coordinates of the d
   "alt_meters": "13.800000190734863"
 }
 ```
+
+---
+
+## 5.0 Query the IoT data in CosmosDB
+
+
