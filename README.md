@@ -44,6 +44,8 @@ and a **throughput of 10,000 RUs**.
 
 ![azure-cosmosdb-provisioning2](img/azure-cosmosdb-provisioning2.png | width=500)
 
+<img src="img/azure-cosmosdb-provisioning2.png" width="500">
+
 ---
 
 ## Register Simulated Devices with the Azure CLI
