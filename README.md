@@ -8,9 +8,13 @@ An implementation of an IoT streaming data pipeline using the following Azure Pa
 
 ![azure-cosmosdb-iot](img/azure-cosmosdb-iot.png "")
 
+---
+
 ## Links
 
 - https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-node
+
+---
 
 ## Provision Azure Resources
 
@@ -38,7 +42,9 @@ Then create the **iot** collection in the **dev** database.
 Specify **unlimited storage capacity**, a **partition key** named **/pk**,
 and a **throughput of 10,000 RUs**.
 
-![azure-cosmosdb-provisioning2](img/azure-cosmosdb-provisioning2.png "")
+![azure-cosmosdb-provisioning2](img/azure-cosmosdb-provisioning2.png =500x)
+
+---
 
 ## Register Simulated Devices with the Azure CLI
 
@@ -64,6 +70,11 @@ Visit Azure Portal, and see that the new devices are listed:
 
 ![registered-devices](img/registered-devices.png "")
 
+---
+
+## Implement the Stream Analytics Job
+
+---
 
 ## Send Events to the IoT Hub
 
