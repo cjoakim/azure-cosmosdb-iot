@@ -6,6 +6,8 @@ An implementation of an IoT streaming data pipeline using the following Azure Pa
 - Azure CosmosDB with SQL API
 - Simulated IoT devices implemented in Node.js.
 
+---
+
 ![azure-cosmosdb-iot](img/azure-cosmosdb-iot.png "")
 
 ---
@@ -16,9 +18,9 @@ An implementation of an IoT streaming data pipeline using the following Azure Pa
 
 ---
 
-## 1. Provision Azure Resources
+## Provision Azure Resources
 
-### 1.1 Provision an IoT Hub PaaS Service
+### Provision an IoT Hub PaaS Service
 
 Name: cjoakim-iot-hub
 Hostname: cjoakim-iot-hub.azure-devices.net
@@ -28,11 +30,11 @@ Pricing and scale tier: S1 - Standard
 
 ![iot-hub-provisioning2](img/iot-hub-provisioning2.png "")
 
-### 1.2 Provision a Stream Analytics PaaS Service
+### Provision a Stream Analytics PaaS Service
 
 <img src="img/stream-analytics-provisioning1.png" width="500">
 
-### 1.3 Provision a CosmosDB PaaS Service
+### Provision a CosmosDB PaaS Service
 
 Create an Azure CosmosDB with the SQL API (i.e. - DocumentDB).
 
@@ -46,7 +48,7 @@ and a **throughput of 10,000 RUs**.
 
 ---
 
-## 2.0 Register Simulated Devices with the Azure CLI
+## Register Simulated Devices with the Azure CLI
 
 Verify that you have a recent version of the **az CLI program**:
 ```
@@ -72,11 +74,25 @@ Visit Azure Portal, and see that the new devices are listed:
 
 ---
 
-## 3.0 Implement the Stream Analytics Job
+## Implement the Stream Analytics Job
+
+See https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-manage-job
+
+First, register your IoT Hub as an Input.
+
+Next, register your CosmosDB as an Output, specify database **dev** and collection **iot**.
+
+Next, implement the **query syntax** for your job, for example:
+ 
+![stream-analytics-query](img/stream-analytics-query.png "")
+
+It's as simple as 6-lines of SQL-like code!
+
+Finally, Start the Stream Analytics Job
 
 ---
 
-## 4.0 Send Events to the IoT Hub
+## Send Events to the IoT Hub
 
 First, install the Node.js NPM libraries:
 ```
