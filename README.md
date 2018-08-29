@@ -36,13 +36,11 @@ Pricing and scale tier: S1 - Standard
 
 Create an Azure CosmosDB with the SQL API (i.e. - DocumentDB).
 
-![azure-cosmosdb-provisioning1](img/azure-cosmosdb-provisioning1.png "")
+<img src="img/azure-cosmosdb-provisioning1.png" width="500">
 
 Then create the **iot** collection in the **dev** database.  
 Specify **unlimited storage capacity**, a **partition key** named **/pk**,
 and a **throughput of 10,000 RUs**.
-
-![azure-cosmosdb-provisioning2](img/azure-cosmosdb-provisioning2.png | width=500)
 
 <img src="img/azure-cosmosdb-provisioning2.png" width="500">
 
