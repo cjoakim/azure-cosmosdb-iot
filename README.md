@@ -1,12 +1,10 @@
 # azure-cosmosdb-iot
 
-IoT streaming data pipeline with the following Azure PaaS services:
+An implementation of an IoT streaming data pipeline using the following Azure PaaS services:
 - Azure IoT Hub
 - Azure Stream Analytics
 - Azure CosmosDB with SQL API
 - Simulated IoT devices implemented in Node.js.
-
-## Architecture
 
 ![azure-cosmosdb-iot](img/azure-cosmosdb-iot.png "")
 
@@ -16,7 +14,7 @@ IoT streaming data pipeline with the following Azure PaaS services:
 
 ## Provision Azure Resources
 
-### Provision an IoT Hub
+### Provision an IoT Hub PaaS Service
 
 Name: cjoakim-iot-hub
 Hostname: cjoakim-iot-hub.azure-devices.net
@@ -26,10 +24,21 @@ Pricing and scale tier: S1 - Standard
 
 ![iot-hub-provisioning2](img/iot-hub-provisioning2.png "")
 
-### Provision Stream Analytics
+### Provision a Stream Analytics PaaS Service
 
-### Provision CosmosDB
+![stream-analytics-provisioning1](img/stream-analytics-provisioning1.png "")
 
+### Provision a CosmosDB PaaS Service
+
+Create an Azure CosmosDB with the SQL API (i.e. - DocumentDB).
+
+![azure-cosmosdb-provisioning1](img/azure-cosmosdb-provisioning1.png "")
+
+Then create the **iot** collection in the **dev** database.  
+Specify **unlimited storage capacity**, a **partition key** named **/pk**,
+and a **throughput of 10,000 RUs**.
+
+![azure-cosmosdb-provisioning2](img/azure-cosmosdb-provisioning2.png "")
 
 ## Register Simulated Devices with the Azure CLI
 
