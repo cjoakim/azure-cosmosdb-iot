@@ -30,7 +30,7 @@ Pricing and scale tier: S1 - Standard
 
 ### Provision a Stream Analytics PaaS Service
 
-![stream-analytics-provisioning1](img/stream-analytics-provisioning1.png "")
+<img src="img/stream-analytics-provisioning1.png" width="500">
 
 ### Provision a CosmosDB PaaS Service
 
