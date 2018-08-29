@@ -2,6 +2,12 @@
 
 IoT streaming pipeline with Azure IoT Hub, Stream Analytics, and CosmosDB. Node.js simulated device.
 
+## Architecture
+
+This repository implements the following Azure Architecture
+
+![azure-cosmosdb-iot](img/azure-cosmosdb-iot.png "")
+
 ## Links
 
 - https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-node
