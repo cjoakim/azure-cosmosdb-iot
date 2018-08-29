@@ -14,6 +14,9 @@ An implementation of an IoT streaming data pipeline using the following Azure Pa
 
 ## Links
 
+- https://azure.microsoft.com/en-us/services/iot-hub/
+- https://azure.microsoft.com/en-us/services/stream-analytics/
+- https://docs.microsoft.com/en-us/azure/cosmos-db/introduction
 - https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-node
 
 ---
