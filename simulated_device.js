@@ -9,8 +9,8 @@ if (process.argv.length < 6) {
     console.log('Error: too few command-line args provided.');
     console.log('  node simulated_device.js <device> <ms-sleep> <max-count> <send-or-test>');
     console.log('  node simulated_device.js device2 1000 3 test');
-    console.log('  node simulated_device.js device1 200 2040 send');
-    console.log('  node simulated_device.js device2 200 2040 send');
+    console.log('  node simulated_device.js device1 250 2040 send');
+    console.log('  node simulated_device.js device2 250 2040 send');
     process.exit();
 }
 

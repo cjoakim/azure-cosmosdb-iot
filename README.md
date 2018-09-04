@@ -106,9 +106,10 @@ First, install the Node.js NPM libraries:
 $ npm install
 ```
 
-Next, send 1000 messages, pausing 250 milliseconds between messages.
+Next, send 2040 messages from two devices, pausing 200 milliseconds between messages.
 ```
-node simulated_device.js device1 250 1000 send
+node simulated_device.js device1 250 2040 send
+node simulated_device.js device2 250 2040 send
 ```
 
 The devices send JSON data that looks like the following.
