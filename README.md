@@ -18,6 +18,7 @@ An implementation of an IoT streaming data pipeline using the following Azure Pa
 - https://azure.microsoft.com/en-us/services/stream-analytics/
 - https://docs.microsoft.com/en-us/azure/cosmos-db/introduction
 - https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-node
+- https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption
 
 ---
 
@@ -96,6 +97,12 @@ Next, implement the **query syntax** for your job, for example:
 It's as simple as 6-lines of SQL-like code!
 
 Finally, Start the Stream Analytics Job
+
+### Streaming Units
+
+**Streaming Units** (SUs) represents the computing resources that are allocated to execute a job.
+
+See https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption regarding how to scale and monitor your Stream Analytics job.
 
 ---
 
