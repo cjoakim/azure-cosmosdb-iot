@@ -1,0 +1,6 @@
+SELECT
+    *
+INTO
+    [cosmosdb-iot-collection]
+FROM
+    [cjoakim-iot-hub]
