@@ -1,0 +1,15 @@
+SELECT
+    UDF.add_pk(input)
+INTO
+    [cosmosdb-iot-collection]
+FROM
+    [cjoakim-iot-hub] as input
+
+---
+
+SELECT
+    *
+INTO
+    [cosmosdb-iot-collection]
+FROM
+    [cjoakim-iot-hub] as input
