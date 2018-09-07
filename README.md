@@ -150,6 +150,7 @@ The query syntax is SQL-like:
 ```
 Count the documents in the collection:
 SELECT COUNT(1) FROM c
+SELECT COUNT(1) FROM c where c.pk = 'device1'
 
 Most recent document:
 SELECT TOP 1 * FROM c order by c.epoch desc

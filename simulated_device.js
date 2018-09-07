@@ -36,7 +36,7 @@ console.log('csv count: ' + csv_lines.length);
 var Mqtt = require('azure-iot-device-mqtt').Mqtt;
 var DeviceClient = require('azure-iot-device').Client
 var Message = require('azure-iot-device').Message;
-var client = DeviceClient.fromConnectionString(conn_str, Mqtt);
+var client  = DeviceClient.fromConnectionString(conn_str, Mqtt);
 var msg_count = 0;
 var csv_index = 0;
 
@@ -55,7 +55,7 @@ setInterval(function(){
     var evt = {};
     var loc = {};
     var date = new Date();
-    evt['pk']  = device;  // the Stream Analytics UDF should now set the 'pk' attribute
+    // evt['pk']  = device;  // the Azure Function should now set the 'pk' attribute
     evt['device'] = device;
     evt['seq']    = msg_count;
     evt['date']   = date.toISOString();
