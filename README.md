@@ -3,6 +3,7 @@
 An implementation of an IoT streaming data pipeline using the following Azure PaaS services:
 - Azure IoT Hub
 - Azure Stream Analytics
+- Azure Functions
 - Azure CosmosDB with SQL API
 - Simulated IoT devices implemented in Node.js.
 
@@ -15,6 +16,8 @@ An implementation of an IoT streaming data pipeline using the following Azure Pa
 ## Links
 
 - https://azure.microsoft.com/en-us/services/iot-hub/
+- https://azure.microsoft.com/en-us/services/functions/
+- https://azure.microsoft.com/en-us/pricing/details/functions/
 - https://azure.microsoft.com/en-us/services/stream-analytics/
 - https://docs.microsoft.com/en-us/azure/cosmos-db/introduction
 - https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-node
@@ -33,6 +36,10 @@ Pricing and scale tier: S1 - Standard
 ![iot-hub-provisioning1](img/iot-hub-provisioning1.png "")
 
 ![iot-hub-provisioning2](img/iot-hub-provisioning2.png "")
+
+### Provision an Azure Functions App
+
+Create a Functions App in an App Service Plan
 
 ### Provision a Stream Analytics PaaS Service
 
