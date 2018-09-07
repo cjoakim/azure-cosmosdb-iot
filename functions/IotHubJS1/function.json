@@ -1,0 +1,24 @@
+{
+  "bindings": [
+    {
+      "type": "eventHubTrigger",
+      "name": "IoTHubMessages",
+      "direction": "in",
+      "path": "iothub",
+      "connection": "cjoakim-iot-hub_events_IOTHUB",
+      "cardinality": "many",
+      "consumerGroup": "secondary"
+    },
+    {
+      "type": "documentDB",
+      "name": "outDoc",
+      "databaseName": "dev",
+      "collectionName": "iot",
+      "createIfNotExists": false,
+      "partitionKey": "/pk",
+      "connection": "cjoakimcosmosdocdb_DOCUMENTDB",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
