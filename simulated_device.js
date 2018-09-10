@@ -55,7 +55,7 @@ setInterval(function(){
     var evt = {};
     var loc = {};
     var date = new Date();
-    // evt['pk']  = device;  // the Azure Function should now set the 'pk' attribute
+    evt['pk']  = device;  // the Azure Function should now set the 'pk' attribute
     evt['device'] = device;
     evt['seq']    = msg_count;
     evt['date']   = date.toISOString();

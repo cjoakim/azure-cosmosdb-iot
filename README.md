@@ -163,6 +163,8 @@ Most recent document:
 SELECT TOP 1 * FROM c order by c.epoch desc
 
 SELECT * FROM c WHERE c.pk = 'device1' and c.seq = 2039 order by c.epoch desc
+
+SELECT TOP 3 * FROM c WHERE c.pk = 'device2' order by c.epoch desc
 ```
 
 Spatial Query with GPS coordinates (Events with 10-meters of the PDX marathon start and finish lines):
