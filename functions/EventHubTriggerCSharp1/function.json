@@ -1,0 +1,23 @@
+{
+  "bindings": [
+    {
+      "type": "eventHubTrigger",
+      "name": "inMsg",
+      "direction": "in",
+      "eventHubName": "apim",
+      "connection": "cjoakimeventhubs2_IO_EVENTHUB",
+      "consumerGroup": "$Default",
+      "cardinality": "one"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "outDoc",
+      "databaseName": "dev",
+      "collectionName": "apim",
+      "createIfNotExists": false,
+      "connectionStringSetting": "cjoakimcosmosdocdb_DOCUMENTDB",
+      "partitionKey": "/pk",
+      "direction": "out"
+    }
+  ]
+}
