@@ -102,7 +102,6 @@ oauthlib==2.1.0
 pip-tools==3.0.0
 pycparser==2.19
 PyJWT==1.6.4
-pyspark==2.1.0+hadoop2.7
 python-dateutil==2.7.3
 requests==2.19.1
 requests-oauthlib==1.0.0
