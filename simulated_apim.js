@@ -43,8 +43,12 @@ function randomInt(max) {
 }
 
 async function sendMessage(msg) {
+    // console.log("sending message:\n" + JSON.stringify(msg, null, 2));
+    // eh_client.send(msg);
+
     const delivery = await eh_client.send(msg);
     console.log("message sent:\n" + JSON.stringify(msg, null, 2));
+    return delivery;
 }
 
 setInterval(function() {
@@ -63,6 +67,7 @@ setInterval(function() {
     var loc = {};
     var date = new Date();
     msg['pk']  = 'app' + randomInt(10);
+    msg['partitionKey']  = msg['pk'];
     msg['seq']    = msg_count;
     msg['date']   = date.toISOString();
     msg['epoch']  = date.getTime();
@@ -78,7 +83,7 @@ setInterval(function() {
     msg['alt_meters']  = csv_fields[4];
 
     if (send_ind === 'send') {
-        sendMessage(msg);
+        var delivery = sendMessage(msg);
     }
     else {
         console.log("sample message:\n" + JSON.stringify(msg, null, 2));
