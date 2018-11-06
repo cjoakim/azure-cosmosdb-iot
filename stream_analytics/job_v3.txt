@@ -1,0 +1,7 @@
+SELECT
+    root.header.entity_uuid as pk,
+    *
+INTO
+    [cosmosdb-iot-collection]
+FROM
+    [cjoakim-iot-hub]
