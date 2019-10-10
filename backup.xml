@@ -2,14 +2,14 @@
 
     <description>
         Ant script to create a zip file backup of this project.
-        Chris Joakim, 2018/08/28
+        Chris Joakim, 2019/10/10
         ant -f backup.xml
     </description>
 
     <!-- These are the only properties you should have to change.  -->
     <property name="_projectRoot"   value="/Users/${user.name}/github" />
     <property name="_projectName"   value="azure-cosmosdb-iot" />
-    <property name="_backupRoot"    value="/Backups/projects" />
+    <property name="_backupRoot"    value="/Users/${user.name}/Backups/projects" />
 
     <!-- These properties are computed from the above. -->
     <property name="_projectDir"    value="${_projectRoot}/${_projectName}" />
