@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/cjoakim/azure-iot#readme",
   "dependencies": {
-    "lodash": ">=4.17.11",
+    "lodash": ">=4.17.19",
     "extend": ">=2.0.2",
     "@azure/event-hubs": "^1.0.5",
     "azure": "^2.3.1-preview",
